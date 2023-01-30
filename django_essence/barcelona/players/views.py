@@ -25,8 +25,9 @@ def main(request):
     return HttpResponse(template.render())
 
 def testing(request):
+    testingPlayers = Players.objects.all().values()
     template = loader.get_template('testEnv.htm')
     context = {
-        'justTesting': 'Testing is successful',
+        'testingPlayers' : testingPlayers ,
     }
     return HttpResponse(template.render(context,request))
