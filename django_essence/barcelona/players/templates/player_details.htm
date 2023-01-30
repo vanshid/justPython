@@ -1,0 +1,15 @@
+{% extends 'master.htm' %}
+
+{% block title %}
+    Details about: {{myPlayer.firstName}} {{myPlayer.lastName}} 
+{% endblock title %}
+
+{% block content %}
+    <h2> 
+        {{myPlayer.firstName}} {{myPlayer.lastName}}
+    </h2>
+    <p> Age: {{myPlayer.age}} </p>
+    <p> Birthdate: {{myPlayer.dob}} </p>
+
+    <p> Back to: <a href="/players"> Players </a> </p>
+{% endblock content %}
