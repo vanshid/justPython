@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse 
 from django.template import loader  
 from .models import Players
+from django.db.models import Q
 
 # Create your views here.
 def players(request):
@@ -24,8 +25,26 @@ def main(request):
     template = loader.get_template('main.htm')
     return HttpResponse(template.render())
 
+# ''' GET DATA
+# values_list('firstName') -> Specific column 
+# .filter('','') -> kwargs returns rows 
+# objects.filter(firstName='').values() | Member.objects..  -> OR
+# objects.filter(Q(firstName='') | Q(firstName='')) -> Q library  
+# '''
+
+# ''' WHERE IN DJANGO
+# Fields Look-up
+# .filter(firstname__startswith='L');
+# https://www.w3schools.com/django/django_queryset_filter.php
+# '''
+
+# ''' SORT 
+# order_by('firstname','') -> ASEC
+# order_by('-firstname') -> DESC 
+# '''
+
 def testing(request):
-    testingPlayers = Players.objects.all().values()
+    testingPlayers = Players.objects.all()
     template = loader.get_template('testEnv.htm')
     context = {
         'testingPlayers' : testingPlayers ,
