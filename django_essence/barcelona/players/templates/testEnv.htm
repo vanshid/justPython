@@ -2,11 +2,28 @@
 <html>
 <body>
 
-<ul>
-{% for x in testingPlayers  %}
-  <li> {{x.firstName}} </li>
-{% endfor %}
-</ul>
+<table border="1">
+  <tr>
+    <th> 
+      ID
+    </th> 
+    
+    <th> 
+      First Name
+    </th> 
+
+    <th> 
+      Last Name
+    </th> 
+  </tr>
+  {% for x in  testingPlayers %}
+  <tr>
+      <td>{{ x.id }}</td>
+        <td>{{ x.firstName }}</td>
+      <td>{{ x.lastName }}</td>
+  </tr>
+  {% endfor %}
+</table>
 
 <p>In views.py you can see what the this variable looks like.</p>
 
